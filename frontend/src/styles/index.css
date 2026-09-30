@@ -1,0 +1,481 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+
+:root {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+
+  color: #f4f7fb;
+  background: #06080d;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+
+  --bg-primary: #06080d;
+  --bg-secondary: #0a0d14;
+
+  --text-primary: #f4f7fb;
+  --text-secondary: #929aaa;
+  --text-muted: #626b7d;
+
+  --glass-bg: rgba(18, 22, 32, 0.68);
+  --glass-border: rgba(255, 255, 255, 0.075);
+
+  --accent: #8b7cff;
+  --accent-soft: rgba(139, 124, 255, 0.16);
+
+  --success: #35d49a;
+  --warning: #f5b94c;
+  --danger: #ff5f6d;
+
+  --radius-lg: 22px;
+  --radius-md: 16px;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+}
+
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at 12% 5%,
+      rgba(139, 124, 255, 0.12),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 88% 12%,
+      rgba(55, 181, 255, 0.08),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 60% 90%,
+      rgba(139, 124, 255, 0.06),
+      transparent 30%
+    ),
+    var(--bg-primary);
+
+  color: var(--text-primary);
+}
+
+
+body::before {
+  content: "";
+
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.012) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.012) 1px,
+      transparent 1px
+    );
+
+  background-size: 42px 42px;
+
+  mask-image: linear-gradient(
+    to bottom,
+    black,
+    transparent 90%
+  );
+
+  z-index: -1;
+}
+
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+
+button {
+  border: 0;
+}
+
+
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+::selection {
+  background: rgba(139, 124, 255, 0.3);
+  color: #ffffff;
+}
+
+
+/* =========================================
+   SCROLLBAR
+========================================= */
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+
+/* =========================================
+   GLOBAL GLASS EFFECT
+========================================= */
+
+.glass-card {
+  position: relative;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.045),
+      rgba(255, 255, 255, 0.012)
+    ),
+    var(--glass-bg);
+
+  border: 1px solid var(--glass-border);
+
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+
+  box-shadow:
+    0 20px 70px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
+
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+
+.glass-card:hover {
+  transform: translateY(-2px);
+
+  border-color: rgba(
+    139,
+    124,
+    255,
+    0.18
+  );
+
+  box-shadow:
+    0 25px 80px rgba(0, 0, 0, 0.32),
+    0 0 45px rgba(139, 124, 255, 0.045),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+
+/* =========================================
+   COMMON BUTTONS
+========================================= */
+
+button {
+  cursor: pointer;
+}
+
+
+.primary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 11px 17px;
+
+  border-radius: 12px;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      135deg,
+      #8b7cff,
+      #6f61e8
+    );
+
+  box-shadow:
+    0 10px 30px rgba(
+      111,
+      97,
+      232,
+      0.22
+    );
+
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+
+.primary-button:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 14px 35px rgba(
+      111,
+      97,
+      232,
+      0.32
+    );
+}
+
+
+.primary-button:active {
+  transform: translateY(0);
+}
+
+
+.ghost-button {
+  padding: 8px 11px;
+
+  border: 1px solid rgba(
+    255,
+    255,
+    255,
+    0.07
+  );
+
+  border-radius: 9px;
+
+  color: var(--text-secondary);
+
+  background: rgba(
+    255,
+    255,
+    255,
+    0.025
+  );
+
+  transition:
+    color 180ms ease,
+    background 180ms ease;
+}
+
+
+.ghost-button:hover {
+  color: white;
+
+  background: rgba(
+    255,
+    255,
+    255,
+    0.06
+  );
+}
+
+
+.text-button {
+  color: var(--accent);
+
+  background: transparent;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+
+.icon-button {
+  width: 38px;
+  height: 38px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(
+    255,
+    255,
+    255,
+    0.07
+  );
+
+  border-radius: 11px;
+
+  color: var(--text-secondary);
+
+  background: rgba(
+    255,
+    255,
+    255,
+    0.025
+  );
+}
+
+
+/* =========================================
+   UTILITY
+========================================= */
+
+.hidden {
+  display: none !important;
+}
+
+
+.fade-in {
+  animation: fadeIn 500ms ease both;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+ 
+/* =========================================================
+   INTERACTION + COMPONENT FIXES
+   ========================================================= */
+
+button,
+input {
+  font-family: inherit;
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+input::placeholder {
+  color: #4f5b6d;
+}
+
+input:focus {
+  outline: none;
+}
+
+.insight-action svg {
+  flex-shrink: 0;
+}
+
+/* Risk colors */
+
+.risk-low {
+  background: #36d399;
+  box-shadow: 0 0 8px rgba(54, 211, 153, 0.55);
+}
+
+.risk-medium {
+  background: #f4c95d;
+  box-shadow: 0 0 8px rgba(244, 201, 93, 0.45);
+}
+
+.risk-high {
+  background: #ff5c70;
+  box-shadow: 0 0 8px rgba(255, 92, 112, 0.5);
+}
+
+.risk-bar-low {
+  background: #36d399;
+}
+
+.risk-bar-medium {
+  background: #f4c95d;
+}
+
+.risk-bar-high {
+  background: #ff5c70;
+}
+
+/* Loading animation */
+
+.spin-animation {
+  animation: dashboard-spin 0.9s linear infinite;
+}
+
+@keyframes dashboard-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Smooth page entrance */
+
+.dashboard-content > * {
+  animation: dashboard-fade-in 320ms ease both;
+}
+
+@keyframes dashboard-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Better focus accessibility */
+
+button:focus-visible,
+input:focus-visible {
+  outline: 1px solid rgba(124, 92, 255, 0.55);
+  outline-offset: 2px;
+}
+
+/* Mobile menu icon is hidden on desktop */
+
+.mobile-menu-icon {
+  display: none;
+}
+
+@media (max-width: 820px) {
+  .mobile-menu-icon {
+    display: block;
+  }
+}

@@ -1,0 +1,42 @@
+# =========================
+# Web API / Backend
+# =========================
+fastapi
+uvicorn
+pydantic
+python-dotenv
+
+# =========================
+# Data Processing
+# =========================
+numpy
+pandas
+scipy
+
+# =========================
+# Machine Learning
+# =========================
+scikit-learn
+xgboost
+joblib
+
+# =========================
+# Explainable AI
+# =========================
+shap
+
+# =========================
+# Database
+# =========================
+sqlalchemy
+
+# =========================
+# HTTP / API Testing
+# =========================
+httpx
+requests
+
+# =========================
+# Testing
+# =========================
+pytest
